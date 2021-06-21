@@ -42,7 +42,7 @@ if (candidateAnswer === correctAnswer){
 function runProgram() {
   askForName();
   // TODO 1.1c: Ask for candidate's name //
-  console.log(`\nHello ${candidateName}, it's nice to meet you.`)
+  console.log(`Hello ${candidateName}, it's nice to meet you.`)
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
