@@ -15,6 +15,7 @@ let candidateAnswer;
 //let correctAnswers;
 let candidateAnswers;
 let allAnswers = []
+let totalCorrect = []
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
@@ -27,7 +28,7 @@ function askQuestion() {
 
 for (i = 0; i < questions.length; i++){
   candidateAnswers = input.question(questions[i]);
-  allAnswers.push(candidateAnswers)
+  allAnswers.push(candidateAnswers.toLowerCase())
 }
 }
 //console.log(allAnswers)
@@ -41,17 +42,22 @@ for (i = 0; i < correctAnswers.length; i++){
   console.log(`\nYour answer: ${allAnswers[i]} \nCorrect answer: ${correctAnswers[i]}`)
 }
 
-
-// if (candidateAnswers === correctAnswers){
-//   console.log("Your answer was correct.")
-// } else {
-//   console.log("Your answer was incorrect.")
-// }
+for (let i = 0; i < correctAnswers.length; i++)
+{if (allAnswers[i] === correctAnswers[i].toLowerCase()){
+  totalCorrect.push(allAnswers[i])
+} 
+}
 
   let grade;
-  
-
+  grade = totalCorrect.length/questions.length*100
+  //console.log(grade)
+    if (grade >=80){
+    console.log(`\nCongratulations, ${candidateName}, you passed with a grade of ${grade}%. Welcome to Space.`)
+  } else {
+    console.log(`\nSorry, ${candidateName}, your grade of ${grade}% was insufficient. Space is closed today.`)
+  }
   return grade;
+
 }
 
 function runProgram() {
